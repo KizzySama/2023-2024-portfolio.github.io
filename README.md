@@ -1,6 +1,6 @@
 # Nerfies
 
-This is the repository that contains source code for the [Nerfies website](https://nerfies.github.io).
+This is the repository that contains source code for the [2023-2024 Portfolio]([https://nerfies.github.io](https://kizzysama.github.io/2023-2024-portfolio.github.io/)).
 
 If you find Nerfies useful for your work please cite:
 ```
