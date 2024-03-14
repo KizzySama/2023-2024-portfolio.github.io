@@ -33,6 +33,7 @@
         href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
   <link rel="stylesheet" href="./static/css/index.css">
   <link rel="icon" href="./static/images/3dscan.svg">
+  <link rel="stylesheet" type="text/css" href="./static/css/test.css">
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script defer src="./static/js/fontawesome.all.min.js"></script>
@@ -125,39 +126,8 @@
                </div>
                 <br /> 
 
-                <div class="columns">
-                    <div class="column is-2 has-text-centered">
-                        <img src="./static/images/1/girl_tune_old.png" class="interpolation-image" alt="Interpolate start reference image.">
-                    </div>
-                    <div class="column is-2 has-text-centered">
-                        <img src="./static/images/1/stairs_tune_old.png" class="interpolation-image" alt="Interpolate start reference image.">
-                    </div>
-                    <div class="column is-2 has-text-centered">
-                        <img src="./static/images/1/table_tune_old.png" class="interpolation-image" alt="Interpolate start reference image.">
-                    </div>
-                    <div class="column is-2 has-text-centered">
-                        <img src="./static/images/1/woodcase_scan_old.png" class="interpolation-image" alt="Interpolate start reference image.">
-                    </div>
-                    <div class="column is-2 has-text-centered">
-                        <img src="./static/images/1/greycase_scan_old.png" class="interpolation-image" alt="Interpolate start reference image.">
-                    </div>
-                </div>
-                <div class="columns">
-                    <div class="column is-2 has-text-centered">
-                        <img src="./static/images/1/girl_tune_new.png" class="interpolation-image" alt="Interpolate start reference image.">
-                    </div>
-                    <div class="column is-3 has-text-centered">
-                        <img src="./static/images/1/stairs_tune_new.png" class="interpolation-image" alt="Interpolate start reference image.">
-                    </div>
-                    <div class="column is-3 has-text-centered">
-                        <img src="./static/images/1/table_tune_new.png" class="interpolation-image" alt="Interpolate start reference image.">
-                    </div>
-                    <div class="column is-3 has-text-centered">
-                        <img src="./static/images/1/woodcase_tune_new.png" class="interpolation-image" alt="Interpolate start reference image.">
-                    </div>
-                    <div class="column is-3 has-text-centered">
-                        <img src="./static/images/1/greycase_tune_new.png" class="interpolation-image" alt="Interpolate start reference image.">
-                    </div>
+                <div class="columns is-vcentered interpolation-panel">
+                  <img src="./static/images/1/texture_compare.png" class="interpolation-image" alt="Interpolate start reference image.">
                 </div>
                 <div class="has-text-centered">
                   <p class="has-text-weight-bold">在一些弱纹理区域上提点和匹配能力增强，减少了很多错误的点云配准</p>
@@ -196,24 +166,48 @@
     <div class="columns is-centered">
       <div class="column is-full-width">
           <h2 class="title is-3">2.散斑辅助激光线重建模块</h2>
-          <h3 class="title is-4">2.1 散斑信息辅助激光匹配</h3>
           <div class="content has-text-justified">
-
-          </div>
-
-          <h3 class="title is-4">2.2 图像特征相似度对激光重建的筛选</h3>
-          <p class="has-text-weight-bold has-text-danger">公开专利：基于图像特征相似度的激光线匹配方法</p>
-          <div class="content has-text-justified">
-
+            <h3 class="title is-5"><img src="./static/images/problem.svg" width="30px"> 难点问题</h3>
+            <ul>
+                <li>消费级彩色扫描仪使用激光扫描模式中经常出现飞线（重建错误）、少线（重建缺失）等异常现象</li>
+                <li>消费级彩色扫描仪由于结构不稳定，需要频繁进行激光平面参数、相机外参的标定，利用这些参数来保证重建校验的准确性</li>
+            </ul>
           </div>
 
           <div class="content has-text-justified">
-              <ul>
-                  <li>优化了原有激光扫描中的飞线、少线等异常现象</li>
-                  <li>
-                      取缔了消费级彩色扫描仪的激光平面校验方式，从而减少标定流程优化用户体验
-                  </li>
-              </ul>
+            <h3 class="title is-5"><img src="./static/images/method.svg" width="30px"> 主要方法</h3>
+            <ul>
+                <li>利用散斑匹配得到的视差图辅助激光点进行匹配</li>
+                <br />
+                <div class="columns is-vcentered interpolation-panel">
+                  <img src="./static/images/2/laser_rec.png" class="interpolation-image" alt="Interpolate start reference image.">
+                </div>
+
+                <li>利用图像特征相似度，对激光重建的匹配关系进行筛选</li>
+                <br />
+                <div class="columns is-vcentered interpolation-panel">
+                  <img src="./static/images/2/rec_error.png" class="interpolation-image" alt="Interpolate start reference image.">
+                </div>
+                <div class="has-text-centered">
+                  <p class="has-text-weight-bold">该方法视差图重建错误的区域，容易导致激光线重建的错误</p>
+                </div>
+                <br />
+                <div class="columns is-vcentered interpolation-panel">
+                  <img src="./static/images/2/sim_filter.png" class="interpolation-image" alt="Interpolate start reference image.">
+                </div>
+                <div class="has-text-centered">
+                  <p class="has-text-weight-bold">这时进行基于图像相似度校验可以较好得区分出重建正确和错误的区域</p>
+                </div>
+            </ul>
+          </div>
+
+          <div class="content has-text-justified">
+            <h3 class="title is-5"><img src="./static/images/result.svg" width="30px"> 工作成果</h3>
+            <ul>
+                <li>大量减少了消费级彩色扫描仪使用激光扫描模式中经常出现飞线（重建错误）、少线（重建缺失）等异常现象</li>
+                <li>取缔利用激光平面的校验方式，大幅减少扫描仪标定次数，优化用户体验</li>
+                <li>获得<p class="has-text-weight-bold has-text-danger">公开专利：基于图像特征相似度的激光线匹配方法</p></li>
+            </ul>
           </div>
       </div>
     </div>
@@ -222,19 +216,48 @@
 
 <section class="section">
   <div class="container is-max-desktop">
-    <!-- 3. -->
+    <!-- 2. -->
+
     <div class="columns is-centered">
       <div class="column is-full-width">
           <h2 class="title is-3">3.散斑扫描平面检测功能</h2>
           <div class="content has-text-justified">
-              <ul>
-                  <li>基于RANSAC算法，优化迭代策略，实现点云单平面提取算法</li>
-                  <li>
-                      基于单平面提取算法，完成多平面检测及背景平面剔除功能
-                  </li>
-                  <li>结合平面信息加入单帧点云特征丰富度计算，通过阻止丰富度过低时的点云配准来减少扫描过程中的错拼现象 </li>
-              </ul>
+            <h3 class="title is-5"><img src="./static/images/problem.svg" width="30px"> 难点问题</h3>
+            <ul>
+                <li>消费级彩色扫描仪使用散斑扫描模式中，重建点云的背景平面需要手动剔除</li>
+                <li>在仅使用点云特征拼接时，扫描到单个平面或由多平面组成的相似区域，很容易配准错误</li>
+            </ul>
           </div>
+
+          <div class="content has-text-justified">
+            <h3 class="title is-5"><img src="./static/images/method.svg" width="30px"> 主要方法</h3>
+            <li>基于RANSAC算法，优化迭代策略，实现点云单平面及多平面提取算法</li>
+            <li>结合平面信息对点云的线特征、相似特征等进行提取，优化单帧点云特征丰富度计算，避免丰富度过低时的点云配准</li>
+          </div>
+
+          <div class="content has-text-justified">
+            <h3 class="title is-5"><img src="./static/images/result.svg" width="30px"> 工作成果</h3>
+            <div class="content has-text-justified">
+              <li>各类场景下的点云提取，平面提取准确度接近100%</li>
+              <div class="columns">
+                <div class="column is-7 has-text-centered">
+                    <img src="./static/images/3/single_plane.png" class="interpolation-image" alt="Interpolate start reference image.">
+                    <div class="has-text-centered">
+                      <p class="has-text-weight-bold">单平面提取效果</p>
+                    </div>
+                </div>
+                <div class="column is-5 has-text-centered">
+                    <img src="./static/images/3/multi_plane.png" class="interpolation-image" alt="Interpolate start reference image.">
+                    <div class="has-text-centered">
+                      <p class="has-text-weight-bold">多平面提取效果</p>
+                    </div>
+                </div>
+              </div>
+            </div>
+
+            <li>优化了单帧点云特征丰富的计算，减少了相似特征区域和平面特征区域的错拼现象</li>
+          </div>
+
       </div>
     </div>
   </div>
@@ -259,7 +282,40 @@
       </div>
   </div>
 </section>
+<div id="outer-container">
+  <div id="container">
+    <img id="image1" src="./static/images/4/zhongce_new.png">
+    <div id="slider" class="ui-draggable ui-draggable-handle">
+      <div class="arrow-right">▶</div>
+      <div class="arrow-left">◀</div>
+    </div>
+    <img id="image2" src="./static/images/4/zhongce_old.png">
+  </div>
+</div>
+<script src="./static/js/test.js"></script>
 
+<div id="outer-container">
+  <div id="container">
+    <img id="image1" src="./static/images/4/1280 0.1.png">
+    <div id="slider" class="ui-draggable ui-draggable-handle">
+      <div class="arrow-right">▶</div>
+      <div class="arrow-left">◀</div>
+    </div>
+    <img id="image2" src="./static/images/4/origin.png">
+  </div>
+</div>
+
+<div id="outer-container">
+  <div id="container">
+    <img id="image1" src="./static/images/4/elephant_new.png">
+    <div id="slider" class="ui-draggable ui-draggable-handle">
+      <div class="arrow-right">▶</div>
+      <div class="arrow-left">◀</div>
+    </div>
+    <img id="image2" src="./static/images/4/elephant_old.png">
+  </div>
+</div>
+<script src="./static/js/test.js"></script>
 
 <footer class="footer">
 </footer>
