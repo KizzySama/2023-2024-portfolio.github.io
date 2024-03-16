@@ -166,12 +166,12 @@
       <div class="column is-full-width">
           <h2 class="title is-4">2.散斑辅助激光线重建模块</h2>
           <div class="content has-text-justified">
-              <h3 class="title is-5">
-                  <span class="icon is-medium">
+                <h3 class="title is-5">
+                  <span class="icon is-small">
                       <img src="./static/images/problem.svg">
                   </span>
                   难点问题
-              </h3>
+                </h3>
               <ul>
                   <li>消费级彩色扫描仪使用激光扫描模式中经常出现飞线（重建错误）、少线（重建缺失）等异常现象</li>
                   <li>消费级彩色扫描仪由于结构不稳定，需要频繁进行激光平面参数、相机外参的标定，利用这些参数来保证重建校验的准确性</li>
@@ -180,8 +180,8 @@
 
           <div class="content has-text-justified">
               <h3 class="title is-5">
-                  <span class="icon is-medium">
-                      <img src="./static/images/method.svg">
+                  <span class="icon is-small">
+                      <img src="./static/images/problem.svg">
                   </span>
                   主要方法
               </h3>
@@ -211,8 +211,8 @@
 
           <div class="content has-text-justified">
               <h3 class="title is-5">
-                  <span class="icon is-medium">
-                      <img src="./static/images/result.svg">
+                  <span class="icon is-small">
+                      <img src="./static/images/problem.svg">
                   </span>
                   工作成果
               </h3>
@@ -235,10 +235,10 @@
           <h2 class="title is-4">3.散斑扫描平面检测功能</h2>
           <div class="content has-text-justified">
               <h3 class="title is-5">
-                  <span class="icon is-medium">
-                      <img src="./static/images/problem.svg">
-                  </span>
-                  难点问题
+                <span class="icon is-small">
+                    <img src="./static/images/problem.svg">
+                </span>
+                难点问题
               </h3>
               <ul>
                   <li>消费级彩色扫描仪使用散斑扫描模式中，重建点云的背景平面需要手动剔除</li>
@@ -248,9 +248,9 @@
 
           <div class="content has-text-justified">
               <h3 class="title is-5">
-                  <span class="icon is-medium">
-                      <img src="./static/images/method.svg">
-                  </span>
+                <span class="icon is-small">
+                    <img src="./static/images/problem.svg">
+                </span>
                   主要方法
               </h3>
               <li>基于RANSAC算法，优化迭代策略，实现点云单平面及多平面提取算法</li>
@@ -259,9 +259,9 @@
 
           <div class="content has-text-justified">
               <h3 class="title is-5">
-                  <span class="icon is-medium">
-                      <img src="./static/images/result.svg">
-                  </span>
+                <span class="icon is-small">
+                    <img src="./static/images/problem.svg">
+                </span>
                   工作成果
               </h3>
               <div class="content has-text-justified">
@@ -296,31 +296,31 @@
                 <h2 class="title is-4">4.散斑扫描细节优化</h2>
                 <div class="content has-text-justified">
                     <h3 class="title is-5">
-                        <span class="icon is-medium">
+                        <span class="icon is-small">
                             <img src="./static/images/problem.svg">
                         </span>
                         难点问题
                     </h3>
                     <ul>
-                        <li>彩色扫描仪使用散斑扫描模式下，单帧点云的重建质量不高</li>
-                        <li>整体重建的单帧点云噪声较大，融合后的点云模型细节丢失</li>
+                        <li>彩色扫描仪使用散斑扫描模式下，重建的单帧点云噪声较大，融合后的点云模型细节丢失</li>
+                        <li>在不影响单帧重建耗时的前提下，提升采样密度来提高扫描效率</li>
                     </ul>
                 </div>
                 <div class="content has-text-justified">
                     <h3 class="title is-5">
-                        <span class="icon is-medium">
-                            <img src="./static/images/method.svg">
+                        <span class="icon is-small">
+                            <img src="./static/images/problem.svg">
                         </span>
                         主要方法
                     </h3>
                     <li>运用特征点提取的思路，筛选出图像中散斑特征周围的高质量重建点</li>
                     <li>调整亚像素级别精匹配中相似度计算模板，达到最优匹配准确度</li>
-                    <li>实验发现采样密度和扫描，实现不同采样分辨率下的三维点重建</li>
+                    <li>实验发现采样密度提高有助于点云模型细节提升，实现不同采样分辨率下的三维点重建</li>
                 </div>
                 <div class="content has-text-justified">
                     <h3 class="title is-5">
-                        <span class="icon is-medium">
-                            <img src="./static/images/result.svg">
+                        <span class="icon is-small">
+                            <img src="./static/images/problem.svg">
                         </span>
                         工作成果
                     </h3>
